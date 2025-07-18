@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The New Order Generator</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="icon" type="image/x-icon" href="./icon.png">
+    <meta property="og:site_name" content="quark88.github.io/rfgen">
+    <meta property="og:title" content="The New Order Generator">
+    <meta property="og:type" content="website">
+    <meta property="og:description" content="Original code by QUARK88, modified for TNO by Krumtum">
+    <meta property="og:url" content="https://quark88.github.io/rfgen">
+    <meta property="og:image" content="https://quark88.github.io/rfgen/icon.png">
+    <meta name="theme-color" content="#00a0ff" data-react-helmet="true">
+    <link rel="preload" href="./flagOverlay.png" as="image">
+    <script type="module" src="./script.js"></script>
+</head>
+
+<body>
+    <nav>
+        <a id="logo" href="https://youtu.be/sxnHnmcJlzs" target="_blank" title="Nikt nam nie zrobił nic">
+            <img src="./icon.png">
+            <div>The New Order Generator by Krumtum</div>
+        </a>
+    </nav>
+    <div id="page1">
+        <section id="diploSection">
+            <div id="diploScreenshot">
+                <div id="diploFront">
+                    <div id="icon"></div>
+                    <div id="topNames">
+                        <div id="country">Click to edit country name</div>
+                        <div id="faction">Click to edit faction name</div>
+                        <div id="leader">Click to edit leader name</div>
+                    </div>
+                    <div id="stability" class="unity">50%</div>
+                    <div id="warSupport" class="unity">50%</div>
+                    <div id="bottomNames">
+                        <div id="party">Click to edit party name</div>
+                        <div id="ideology"></div>
+                        <div id="subideology">Subideology Name</div>
+                        <div id="election">Click to edit election type</div>
+                    </div>
+                    <div id="focusIcon"></div>
+                    <div id="focus">Click to edit national focus</div>
+                </div>
+                <div id="diploOverlay"></div>
+                <div id="diploBack">
+                    <div id="flag"></div>
+                    <div id="flagOverlay"></div>
+                    <div id="portraitBackground">
+                        <div id="portrait"></div>
+                    </div>
+                    <div id="pieChart"></div>
+                </div>
+            </div>
+            <div id="diploTools">
+                <div class="buttonGroup" id="popularityTools"></div>
+                <div id="popularityInputs"></div>
+                <button id="diploDownload">Download Image</button>
+                <div class="buttonGroup">
+                    <button id="flagUpload">Upload Flag</button>
+                    <button id="portraitUpload">Upload Portrait</button>
+                    <button id="focusUpload">Upload Focus Icon</button>
+                </div>
+                <div class="buttonGroup">
+                    <button id="flagEdit">Edit Flag</button>
+                    <button id="portraitEdit">Edit Portrait</button>
+                    <button id="focusEdit">Edit Focus Icon</button>
+                </div>
+                <div class="buttonGroup">
+                    <button id="flagReset">Remove Flag</button>
+                    <button id="portraitReset">Remove Portrait</button>
+                    <button id="focusReset">Remove Focus Icon</button>
+                </div>
+                <div class="buttonGroup">
+                    <button id="randomizeIdeology">Randomize Ideology</button>
+                    <button id="randomizeStability">Randomize Stability</button>
+                    <button id="randomizeWarSupport">Randomize War Support</button>
+                </div>
+            </div>
+            <div id="diploIdeologyMenu">
+                <div id="ideologyPicker" class="picker">
+                    <ideology class="title">
+                        <div>Pick ruling ideology</div>
+                    </ideology>
+                </div>
+                <div id="ideologyDescription">Description of the selected ideology</div>
+                <div id="subideologyPicker" class="picker">
+                    <ideology class="title">
+                        <div>Pick ruling subideology</div>
+                    </ideology>
+                </div>
+                <div id="subideologyDescription">Description of the selected subideology</div>
+            </div>
+        </section>
+    </div>
+</body>
+
+</html>
