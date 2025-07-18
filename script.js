@@ -38,82 +38,44 @@ function show(page) {
 }
 show(page1)
 document.getElementById("diploDownload").addEventListener("click", async () => {
-    let clone = null;
     try {
-        const element = document.getElementById("diploScreenshot");
-        if (!element) throw new Error("Element not found");
-        
-        clone = element.cloneNode(true);
-        clone.id = "diploScreenshotClone";
-        clone.style.position = 'fixed';
-        clone.style.top = '-9999px';
-        clone.style.left = '-9999px';
-        clone.style.zIndex = '999999';
-        clone.style.background = 'white';
-        
-        const clonedFlag = clone.querySelector("#flagOverlay");
+        const element = document.getElementById("diploScreenshot")
+        if (!element) throw new Error("Element not found")
+        const clone = element.cloneNode(true)
+        clone.style.position = 'fixed'
+        clone.style.top = '0'
+        clone.style.left = '0'
+        clone.style.zIndex = '999999'
+        clone.style.visibility = 'hidden'
+        clone.style.background = 'transparent'
+        document.body.appendChild(clone)
+        const clonedFlag = clone.querySelector("#flagOverlay")
         if (clonedFlag) {
-            clonedFlag.style.animation = 'none';
-            clonedFlag.style.backgroundImage = 'url("./flagAnimation/1.png")';
+            clonedFlag.style.animation = 'none'
+            clonedFlag.style.backgroundImage = 'url("./flagAnimation/1.png")'
         }
-        
-        document.body.appendChild(clone);
-        
-        await new Promise(resolve => requestAnimationFrame(resolve));
-        
+        await new Promise(resolve => setTimeout(resolve, 50))
+        clone.style.visibility = 'visible'
         const options = {
-            backgroundColor: 'white',
+            backgroundColor: null,
             width: element.offsetWidth,
             height: element.offsetHeight,
-            cacheBust: true,
-            style: {
-                transform: 'none',
-                opacity: 1
-            }
-        };
-        
-        let dataURL;
-        try {
-            dataURL = await htmlToImage.toPng(clone, options);
-        } catch (e) {
-            const canvas = document.createElement('canvas');
-            canvas.width = options.width;
-            canvas.height = options.height;
-            const ctx = canvas.getContext('2d');
-            const svgData = new XMLSerializer().serializeToString(clone);
-            const img = new Image();
-            img.src = 'data:image/svg+xml;base64,' + btoa(unescape(encodeURIComponent(svgData)));
-            await new Promise(resolve => {
-                img.onload = resolve;
-                img.onerror = resolve;
-            });
-            ctx.drawImage(img, 0, 0);
-            dataURL = canvas.toDataURL('image/png');
+            cacheBust: true
         }
-        
-        const link = document.createElement("a");
-        link.href = dataURL;
-        link.download = `The New Order ${leader} ${country}.png`;
-        document.body.appendChild(link);
-        link.click();
-        
-        setTimeout(() => {
-            document.body.removeChild(link);
-            if (clone && document.body.contains(clone)) {
-                document.body.removeChild(clone);
-            }
-        }, 100);
-        
+        const dataURL = await htmlToImage.toPng(clone, options)
+        const link = document.createElement("a")
+        link.href = dataURL
+        link.download = `The New Order ${leader} ${country}.png`
+        document.body.appendChild(link)
+        link.click()
+        setTimeout(() => document.body.removeChild(link), 100)
+
     } catch (error) {
-        console.error("Error generating image:", error);
-        alert("Failed to generate image. Please try again or use a different browser.");
+        console.error("Screenshot failed:", error)
+        alert("Screenshot downloading is not supported on this browser. Chrome-based browsers seem to work just fine, so you might wanna try there. Not my fault the modules suck, i'm a Firefox user myself and this pisses me off.")
     } finally {
-        const clones = document.querySelectorAll('#diploScreenshotClone');
-        clones.forEach(clone => {
-            if (document.body.contains(clone)) {
-                document.body.removeChild(clone);
-            }
-        });
+        const clones = document.querySelectorAll('#diploScreenshot[style*="fixed"]')
+        clones.forEach(clone => document.body.removeChild(clone))
     }
 })
 function setupImageUpload(buttonId, targetId) {
