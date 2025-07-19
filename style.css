@@ -275,9 +275,10 @@ ideology:hover,
 #focus {
     display: flex;
     justify-content: center;
+    align-items: center; /* Ensures vertical centering */
     position: absolute;
     width: 232px;
-    height: 53px;
+    height: 34px;
     left: 244px;
     top: 244px;
     color: var(--f);
