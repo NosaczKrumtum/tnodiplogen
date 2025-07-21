@@ -19,11 +19,9 @@
 </head>
 
 <body>
-    <nav>
-        <a id="logo" href="https://youtu.be/sxnHnmcJlzs" target="_blank" title="NIKT NAM NIE ZROBIŁ NIC">
-            <img src="./icon.png">
-            <div>The New Order Generator by Krumtum</div>
-        </a>
+    <nav id="topButtons">
+        <div class="navButton" id="page1Button">Diplomatic Screen Generator</div>
+        <div class="navButton" id="page2Button">Political Screen Generator</div>
     </nav>
     <div id="page1">
         <section id="diploSection">
@@ -32,7 +30,7 @@
                     <div id="icon"></div>
                     <div id="topNames">
                         <div id="country">Click to edit country name</div>
-                        <div id="faction">Click to edit faction name</div>
+                        <div id="diplonamefaction">Click to edit faction name</div>
                         <div id="leader">Click to edit leader name</div>
                     </div>
                     <div id="stability" class="unity">50%</div>
@@ -45,6 +43,7 @@
                     </div>
                     <div id="focusIcon"></div>
                     <div id="focus">Click to edit national focus</div>
+                    <div id="factionStatus"></div>
                 </div>
                 <div id="diploOverlay"></div>
                 <div id="diploBack">
@@ -64,16 +63,19 @@
                     <button id="flagUpload">Upload Flag</button>
                     <button id="portraitUpload">Upload Portrait</button>
                     <button id="focusUpload">Upload Focus Icon</button>
+                    <button id="factionStatusUpload">Upload Faction Status Icon</button>
                 </div>
                 <div class="buttonGroup">
                     <button id="flagEdit">Edit Flag</button>
                     <button id="portraitEdit">Edit Portrait</button>
                     <button id="focusEdit">Edit Focus Icon</button>
+                    <button id="factionStatusEdit">Edit Faction Status Icon</button>
                 </div>
                 <div class="buttonGroup">
                     <button id="flagReset">Remove Flag</button>
                     <button id="portraitReset">Remove Portrait</button>
                     <button id="focusReset">Remove Focus Icon</button>
+                    <button id="factionStatusReset">Remove Faction Status Icon</button>
                 </div>
                 <div class="buttonGroup">
                     <button id="randomizeIdeology">Randomize Ideology</button>
@@ -94,6 +96,117 @@
                     </ideology>
                 </div>
                 <div id="subideologyDescription">Description of the selected subideology</div>
+                <div id="factionPicker" class="picker">
+                    <ideology class="title">
+                        <div>Pick faction</div>
+                    </ideology>
+                </div>
+                <div id="factionDescription">Only some of the factions have faction status!</div>
+                <div id="statusPicker" class="picker">
+                    <ideology class="title">
+                        <div>Pick faction status</div>
+                    </ideology>
+                </div>
+                <div id="statusDescription">Description of the selected faciton status</div>
+            </div>
+        </section>
+    </div>
+    <div id="page2">
+        <section id="poliSection">
+            <div id="poliScreenshot">
+                <div id="poliFront">
+                    <div id="poliicon"></div>
+                    <div id="polileader">Click to edit leader name</div>
+                    <div id="polibottomNames">
+                        <div id="poliparty">Click to edit party name</div>
+                        <div id="poliideology"></div>
+                        <div id="polisubideology">Subideology Name</div>
+                    </div>
+                    <div id="polifocusIcon"></div>
+                    <div id="polifocus">Click to edit national focus</div>
+                    <div id="polifactionIcon"></div>
+                    <div id="polifactionStatus"></div>
+                    <div id="polihog"></div>
+                    <div id="polifor"></div>
+                    <div id="polieco"></div>
+                    <div id="polisec"></div>
+                </div>
+                <div id="poliOverlay"></div>
+                <div id="poliBack">
+                    <div id="poliportraitBackground">
+                        <div id="poliportrait"></div>
+                    </div>
+                    <div id="polipieChart"></div>
+                </div>
+            </div>
+            <div id="poliTools">
+                <div class="polibuttonGroup" id="polipopularityTools"></div>
+                <div id="polipopularityInputs"></div>
+                <button id="poliDownload">Download Image [Chrome-based browsers only]</button>
+                <div class="polibuttonGroup">
+                    <button id="poliportraitUpload">Upload Portrait</button>
+                    <button id="polifocusUpload">Upload Focus Icon</button>
+                    <button id="polifactionUpload">Upload Faction Icon</button>
+                    <button id="polistatusUpload">Upload Faction Status icon </button>
+                </div>
+                <div class="polibuttonGroup">
+                    <button id="poliportraitEdit">Edit Portrait</button>
+                    <button id="polifocusEdit">Edit Focus Icon</button>
+                    <button id="polifactionEdit">Edit Faction Icon</button>
+                    <button id="polistatusEdit">Edit Faction Status icon </button>
+                </div>
+                <div class="polibuttonGroup">
+                    <button id="poliportraitReset">Remove Portrait</button>
+                    <button id="polifocusReset">Remove Focus Icon</button>
+                    <button id="polifactionReset">Remove Faction Icon</button>
+                    <button id="polistatusReset">Remove Faction Status icon </button>
+                </div>
+                <div class="polibuttonGroup">
+                    <button id="polirandomizeIdeology">Randomize Ideology</button>
+                </div>
+                <div class="polibuttonGroup">
+                    <button id="polihogUpload">Upload Head of Government Icon</button>         
+                    <button id="poliforUpload">Upload Foreign Minister Icon</button>
+                    <button id="poliecoUpload">Upload Economic Minister Icon</button>
+                    <button id="polisecUpload">Upload Security Minister Icon</button>
+                </div>
+                <div class="polibuttonGroup">
+                    <button id="polihogEdit">Edit Head of Government Icon</button>
+                    <button id="poliforEdit">Edit Foreign Minister Icon</button>
+                    <button id="poliecoEdit">Edit Economic Minister Icon</button>
+                    <button id="polisecEdit">Edit Security Minister Icon</button>
+                </div>
+                <div class="polibuttonGroup">
+                    <button id="polihogReset">Remove Head of Government Icon</button>
+                    <button id="poliforReset">Remove Foreign Minister Icon</button>
+                    <button id="poliecoReset">Remove Economic Minister Icon</button>
+                    <button id="polisecReset">Remove Security Minister Icon</button>
+                </div>
+            </div>
+            <div id="poliIdeologyMenu">
+                <div id="poliideologyPicker" class="picker">
+                    <ideology class="title">
+                        <div>Pick ruling ideology</div>
+                    </ideology>
+                </div>
+                <div id="poliideologyDescription">Description of the selected ideology</div>
+                <div id="polisubideologyPicker" class="picker">
+                    <ideology class="title">
+                        <div>Pick ruling subideology</div>
+                    </ideology>
+                </div>
+                <div id="polisubideologyDescription">Description of the selected subideology</div>
+                <div id="polifactionPicker" class="picker">
+                    <ideology class="title">
+                        <div>Pick faction</div>
+                    </ideology>
+                </div>
+                <div id="polifactionDescription">Only some of the factions have faction status!</div>
+                <div id="polistatusPicker" class="picker">
+                    <ideology class="title">
+                        <div>Pick faction status</div>
+                    </ideology>
+                </div>
             </div>
         </section>
     </div>

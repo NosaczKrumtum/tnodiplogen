@@ -193,7 +193,7 @@ poliideology:hover,
 }
 #polileader {
     display: flex;
-    flex-direction: column-reverse;
+    flex-direction: column;
     position: absolute;
     left: 6px;
     top: 261px;
@@ -207,8 +207,6 @@ poliideology:hover,
     position: absolute;
     text-align: center;
     width: 152px;
-    max-height: 20px;
-    padding: 9px 0px ;
 }
 
 #country {
@@ -271,6 +269,7 @@ poliideology:hover,
     overflow: hidden;
 }
 #poliparty {
+    display: flex;
     flex-direction: column;
     position: absolute;
     left: 379px;
@@ -280,7 +279,7 @@ poliideology:hover,
     font-size: 17px;
     letter-spacing: 0.2px;
     text-shadow: 0 -1px 0 black;
-    max-width: 154px;
+    width: 154px;
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
@@ -381,8 +380,8 @@ poliideology:hover,
 #focusIcon {
     display: block;
     position: absolute;
-    width: 86px;
-    height: 69px;
+    width: 94px;
+    height: 76px;
     left: 143px;
     top: 238px;
     background-size: contain;
@@ -393,10 +392,10 @@ poliideology:hover,
 #polifocusIcon {
     display: block;
     position: absolute;
-    width: 94px;
-    height: 76px;
-    left: 171px;
-    top: 61px;
+    width: 86px;
+    height: 69px;
+    left: 175px;
+    top: 64px;
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
@@ -435,42 +434,6 @@ poliideology:hover,
     text-align: center;
     padding: 9px 21px ;
 }
-#factionStatus {
-    display: block;
-    position: absolute;
-    width: 64px;
-    height: 64px;
-    left: 458px;
-    top: 82px;
-    background-size: contain;
-    background-position: center;
-    background-repeat: no-repeat;
-}
-
-#polifactionStatus {
-    display: block;
-    position: absolute;
-    width: 52.5px;
-    height: 52.5px;
-    left: 274px;
-    top: 238px;
-    background-size: contain;
-    background-position: center;
-    background-repeat: no-repeat;
-}
-
-#polifactionIcon {
-    display: block;
-    position: absolute;
-    width: 49.5px;
-    height: 49.5px;
-    left: 194px;
-    top: 238px;
-    background-size: contain;
-    background-position: center;
-    background-repeat: no-repeat;
-}
-
 #polihog {
     display: block;
     position: absolute;
@@ -537,7 +500,7 @@ poliideology:hover,
     flex-wrap: wrap;
 }
 
-ideology,poliideology,faction,polifaction {
+ideology,poliideology,faction {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -560,8 +523,7 @@ ideology,poliideology,faction,polifaction {
 
 ideology:active,
 poliideology:active,
-faction:active,
-polifaction:active
+faction:active
 .buttonGroup button:active,
 #equalizationButton:active,
 #randomizationButton:active,
@@ -583,6 +545,25 @@ ideology div {
 }
 
 ideology div {
+    display: flex;
+    align-items: center;
+    height: 100px;
+}
+
+
+
+faction img {
+    width: 66px;
+    height: 66px;
+}
+
+faction div {
+    display: flex;
+    align-items: center;
+    height: 32px;
+}
+
+faction div {
     display: flex;
     align-items: center;
     height: 100px;
@@ -613,7 +594,7 @@ ideology div {
 #ideologyDescription,#poliideologyDescription,
 #polisubideologyDescription,
 #subideologyDescription,
-#factionDescription,#polifactionDescription,#polistatusDescription
+#factionDescription,
 #statusDescription {
     background-color: var(--button);
     border-radius: 3px;
@@ -626,7 +607,6 @@ ideology div {
 }
 
 #subideologyDescription,#polisubideologyDescription,
-#factionDescription,#polifactionDescription,#polistatusDescription
 #statusDescription {
     font-size: 12px;
     font-weight: 500;
@@ -754,6 +734,7 @@ input:disabled {
 #election,
 #focus,
 #policountry,
+#polifaction,
 #polileader,
 #poliparty,
 #polielection,
@@ -770,11 +751,11 @@ input:disabled {
         flex-direction: column;
     }
     #diploTools,
-    #diploIdeologyMenu,#poliTools,#poliIdeologyMenu {
+    #diploIdeologyMenu {
         padding: 0 16px;
     }
 
-    #popularityInputs,#polipopularityInputs {
+    #popularityInputs {
         gap: 16px;
         margin: 8px 0;
     }
